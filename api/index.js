@@ -5,14 +5,14 @@ const routerApi = require('./routes')
 const {logErrors, errorHandler, boomErrorHandler} = require('./middlewares/error.handler.js')
 
 const app = express();
-const port = 3300;
+const port = process.env.PORT || 3300;
 
 app.use(express.json())
 app.use(cors())
 
 const whitelist = []
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Hola mi server en Express');
 });
 
